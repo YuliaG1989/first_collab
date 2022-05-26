@@ -11,6 +11,7 @@ app.use(cors());
 app.post('/monkey', (req, res) => {
     Monkey.create(req.body, (err, createdMonkey) => {
         res.json(createdMonkey)
+        res.json('Hello')
     })
 })
 
