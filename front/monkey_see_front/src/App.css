@@ -55,6 +55,20 @@ h1{
 }
 
 img{
-  height: 50%;
-  width: 50%;
+  height: 70%;
+  width: 70%;
+}
+
+button {
+  margin: 20px !important;
+}
+li{
+  list-style-type: none;
+  font-size: 25px;
+  
+}
+
+.monkeys{
+  background-color: rgb(0,0,0,0.5);
+  margin: 20px !important;
 }
