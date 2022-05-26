@@ -4,6 +4,7 @@ import{useState, useEffect} from 'react'
 import 'bootstrap/dist/css/bootstrap.css'
 import axios from 'axios'
 
+
 function App() {
    //________STATES
   const[name, setName] = useState("")
@@ -13,8 +14,10 @@ function App() {
   const[description, setDescription] = useState("")
   const[image, setImage] = useState("")
   const [monkeys, setMonkeys] = useState([])
+  
+  
  
-//____
+//____FUNCTIONS
 
 const newName = (event) =>{
   setName(event.target.value)
@@ -85,6 +88,9 @@ const updateMonkeys = (event, monkeysData) =>{
 })
 })
 }
+
+//_____MAPS
+
   return (
   <>
   <header className='container'><h1>Monkey See, Monkey Do.</h1></header>
@@ -97,7 +103,7 @@ const updateMonkeys = (event, monkeysData) =>{
   Species: <input className='form-control' type="text"onChange={newSpecies}  /><br/>
   Order: <input className='form-control' type="text" onChange={newOrder}  /><br/>
   Family: <input className='form-control' type="text" onChange={newFamily}  /><br/>
-  Description: <input className='form-control' type="text" onChange={newDescription}  /><br/>
+  Description: <textarea className='form-control' rows ="4" onChange={newDescription}></textarea><br/>
   Image: <input className='form-control' type="url" onChange={newImage} /><br/>
 
   <input className ="btn btn-primary" type ="submit" value="Add" />
@@ -105,10 +111,16 @@ const updateMonkeys = (event, monkeysData) =>{
 </form>
  </div>
 <div className='container'>
+  <div className='row'>
  {monkeys.map((monkey)=>{
    return(
-     <div  key={monkey._id}>
-      <h2>{monkey.name}</h2>
+     <div className='monkeys col-sm-6'  key={monkey._id}>
+      <h2>Name: {monkey.name}</h2>
+      <ul>
+      <li>Species:{monkey.species}</li>
+      <li>Family: {monkey.family}</li>
+      <li> Short Description: {monkey.description}</li>
+      </ul>
       <img className ="img-thumbnail" src={monkey.image}/>
       <form onSubmit ={(event)=>{updateMonkeys(event, monkey)}}>
   
@@ -116,15 +128,16 @@ const updateMonkeys = (event, monkeysData) =>{
   Species: <input className='form-control' type="text" defaultValue={monkey.species} onChange={newSpecies}  /><br/>
   Order: <input className='form-control' type="text" defaultValue={monkey.order} onChange={newOrder}  /><br/>
   Family: <input className='form-control' type="text" defaultValue={monkey.family} onChange={newFamily}  /><br/>
-  Description: <input className='form-control' type="text" defaultValue={monkey.description} onChange={newDescription}  /><br/>
+  Description: <textarea className='form-control' rows ="4" type="text" defaultValue={monkey.description} onChange={newDescription}></textarea><br/>
   Image: <input className='form-control' type="url" defaultValue={monkey.image} onChange={newImage} /><br/>
 
-  <input className ="btn btn-primary" type ="submit" value="Add" />
+  <input className ="btn btn-primary" type ="submit" value="Update This Monkey" />
 
 </form>
       <button className ="btn btn-primary" onClick={(event)=>{deleteMonkey(monkey)}}>Delete</button>
       </div>
    )})}
+   </div>
 </div>
   </>
   );
