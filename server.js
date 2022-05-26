@@ -11,18 +11,18 @@ app.use(cors());
 app.post('/monkey', (req, res) => {
     Monkey.create(req.body, (err, createdMonkey) => {
         res.json(createdMonkey)
-        res.json('Hello')
+
     })
 })
 
-app.get('/monkey', (req,res) => {
+app.get('/monkey', (req, res) => {
     Monkey.find({}, (err, monkeyHome) => {
         res.json(monkeyHome)
     })
 })
 
 app.delete('/monkey/:id', (req, res)=>{
-    Monkey.findByIdAndRemove(req.params.id, deletedMonkey=>{
+    Monkey.findByIdAndRemove(req.params.id, (err, deletedMonkey)=>{
         res.json(deletedMonkey)
     })
 })
@@ -31,7 +31,7 @@ app.put('/monkey/:id', (req,res)=>{
     Monkey.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedMonkey)=>{
         res.json(updatedMonkey)
     })
-   
+
    })
 
 app.listen(3000, () => {
