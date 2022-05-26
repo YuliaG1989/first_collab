@@ -89,6 +89,16 @@ const updateMonkeys = (event, monkeysData) =>{
 })
 }
 
+//______SHOW
+
+// const showOne =(monkeysData) =>{
+//   axios.get(`http://localhost:3000/monkey/${monkeysData._id}`).then((response)=>{
+//     setMonkeys(response.data)
+//   })
+
+//   }
+
+
 const [showMonkey, setShowMonkey] = useState(false)
 const [updateMonkey, setUpdateMonkey] = useState(false)
 const [addForm, setAddForm] = useState(false)
@@ -97,15 +107,16 @@ const [addForm, setAddForm] = useState(false)
   <header className='container'><h1>Monkey See, Monkey Do.</h1></header>
 
  <div className ="container">
- <button className ="btn btn-primary" onClick={()=>setAddForm(s=>!s)} >Add New</button>
- { addForm? <form onSubmit ={addMonkey}>
+ <button className ="btn btn-primary" onClick={()=>setAddForm(s=>!s)} >Add New Monkey</button>
+
+ { addForm? <form className='create' onSubmit ={addMonkey}>
   
-  Name: <input className='form-control' type="text" onChange={newName}  /><br/>
-  Species: <input className='form-control' type="text"onChange={newSpecies}  /><br/>
-  Order: <input className='form-control' type="text" onChange={newOrder}  /><br/>
-  Family: <input className='form-control' type="text" onChange={newFamily}  /><br/>
-  Description: <textarea className='form-control' rows ="4" onChange={newDescription}></textarea><br/>
-  Image: <input className='form-control' type="url" onChange={newImage} /><br/>
+ <label>Name:</label>  <input className='form-control' type="text" onChange={newName}  /><br/>
+ <label> Species:</label>  <input className='form-control' type="text"onChange={newSpecies}  /><br/>
+ <label> Order:</label>  <input className='form-control' type="text" onChange={newOrder}  /><br/>
+ <label> Family:</label>  <input className='form-control' type="text" onChange={newFamily}  /><br/>
+ <label>Description:</label>  <textarea className='form-control' rows ="4" onChange={newDescription}></textarea><br/>
+ <label>Image:</label>  <input className='form-control' type="url" onChange={newImage} /><br/>
 
   <input className ="btn btn-primary" type ="submit" value="Add" />
 
@@ -133,11 +144,11 @@ const [addForm, setAddForm] = useState(false)
       </ul> : ""
       }
       
-      <button className ="btn btn-primary" onClick={()=>setUpdateMonkey(s=>!s)} >Update</button>
+      <button className ="btn btn-primary" onClick={()=>setUpdateMonkey(s=>!s)} > Click Here to Update</button>
       { updateMonkey ?
       <form onSubmit ={(event)=>{updateMonkeys(event, monkey)}}>
   
-  Name: <input className='form-control' type="text" defaultValue={monkey.name}  onChange={newName}  /><br/>
+  <input className='form-control' type="text" defaultValue={monkey.name}  onChange={newName}  /><br/>
   Species: <input className='form-control' type="text" defaultValue={monkey.species} onChange={newSpecies}  /><br/>
   Order: <input className='form-control' type="text" defaultValue={monkey.order} onChange={newOrder}  /><br/>
   Family: <input className='form-control' type="text" defaultValue={monkey.family} onChange={newFamily}  /><br/>
