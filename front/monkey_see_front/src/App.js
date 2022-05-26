@@ -11,7 +11,7 @@ function App() {
   const[species, setSpecies] = useState("")
   const[order, setOrder] = useState("")
   const[family, setFamily] = useState("")
-  const[description, setDescription] = useState("")
+  const[description, setDescription] = useState(false)
   const[image, setImage] = useState("")
   const [monkeys, setMonkeys] = useState([])
   
@@ -89,15 +89,16 @@ const updateMonkeys = (event, monkeysData) =>{
 })
 }
 
-//_____MAPS
-
+const [showMonkey, setShowMonkey] = useState(false)
+const [updateMonkey, setUpdateMonkey] = useState(false)
+const [addForm, setAddForm] = useState(false)
   return (
   <>
   <header className='container'><h1>Monkey See, Monkey Do.</h1></header>
 
  <div className ="container">
-
- <form onSubmit ={addMonkey}>
+ <button className ="btn btn-primary" onClick={()=>setAddForm(s=>!s)} >Add New</button>
+ { addForm? <form onSubmit ={addMonkey}>
   
   Name: <input className='form-control' type="text" onChange={newName}  /><br/>
   Species: <input className='form-control' type="text"onChange={newSpecies}  /><br/>
@@ -108,20 +109,32 @@ const updateMonkeys = (event, monkeysData) =>{
 
   <input className ="btn btn-primary" type ="submit" value="Add" />
 
-</form>
+</form> : "" }
  </div>
 <div className='container'>
   <div className='row'>
  {monkeys.map((monkey)=>{
    return(
+    
      <div className='monkeys col-sm-6'  key={monkey._id}>
-      <h2>Name: {monkey.name}</h2>
-      <ul>
-      <li>Species:{monkey.species}</li>
-      <li>Family: {monkey.family}</li>
-      <li> Short Description: {monkey.description}</li>
-      </ul>
+      
       <img className ="img-thumbnail" src={monkey.image}/>
+      
+      <div>
+      <h2>Name: {monkey.name}</h2>
+      <button className ="btn btn-primary" onClick={()=>setShowMonkey(s=>!s)} >See the description</button>
+      
+      { showMonkey? 
+      <ul>
+      <li><h3>Species:</h3> {monkey.species}</li>
+      <li>Family: {monkey.family}</li>
+      
+      <li> Short Description: {monkey.description}</li>
+      </ul> : ""
+      }
+      </div>
+      <button className ="btn btn-primary" onClick={()=>setUpdateMonkey(s=>!s)} >Update</button>
+      { updateMonkey ?
       <form onSubmit ={(event)=>{updateMonkeys(event, monkey)}}>
   
   Name: <input className='form-control' type="text" defaultValue={monkey.name}  onChange={newName}  /><br/>
@@ -133,9 +146,9 @@ const updateMonkeys = (event, monkeysData) =>{
 
   <input className ="btn btn-primary" type ="submit" value="Update This Monkey" />
 
-</form>
-      <button className ="btn btn-primary" onClick={(event)=>{deleteMonkey(monkey)}}>Delete</button>
-      </div>
+</form> : "" }
+      <button className ="btn btn-primary" onClick={(event)=>{deleteMonkey(monkey)}}>Delete</button> 
+      </div> 
    )})}
    </div>
 </div>
