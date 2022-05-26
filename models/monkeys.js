@@ -6,7 +6,7 @@ const monkeysSchema = new mongoose.Schema({
     order: String,
     family: String,
     description: String,
-    image: String,
+    image: String
 
 })
 
