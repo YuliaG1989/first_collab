@@ -116,7 +116,7 @@ const [addForm, setAddForm] = useState(false)
  {monkeys.map((monkey)=>{
    return(
     
-     <div className='monkeys col-sm-6'  key={monkey._id}>
+     <div className='monkeys col-sm-5'  key={monkey._id}>
       
       <img className ="img-thumbnail" src={monkey.image}/>
       
@@ -132,7 +132,7 @@ const [addForm, setAddForm] = useState(false)
       <li> Short Description: {monkey.description}</li>
       </ul> : ""
       }
-      </div>
+      
       <button className ="btn btn-primary" onClick={()=>setUpdateMonkey(s=>!s)} >Update</button>
       { updateMonkey ?
       <form onSubmit ={(event)=>{updateMonkeys(event, monkey)}}>
@@ -149,6 +149,7 @@ const [addForm, setAddForm] = useState(false)
 </form> : "" }
       <button className ="btn btn-primary" onClick={(event)=>{deleteMonkey(monkey)}}>Delete</button> 
       </div> 
+      </div>
    )})}
    </div>
 </div>
