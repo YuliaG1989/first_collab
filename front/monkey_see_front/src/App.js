@@ -45,7 +45,7 @@ const addMonkey = (event) =>{
     order: order,
     family: family,
     description: description,
-    image: image,
+    image: image
 
 }).then(()=>{axios.get('http://localhost:3000/monkey').then((response)=>{
     setMonkeys(response.data)
@@ -89,8 +89,8 @@ const deleteMonkey = (monkeysData) =>{
 <div className='container'>
  {monkeys.map((monkey)=>{
    return(
-     <div>
-      <h2 key={monkey._id}>{monkey.name}</h2>
+     <div  key={monkey._id}>
+      <h2>{monkey.name}</h2>
       <img className ="img-thumbnail" src={monkey.image}/>
       <button className ="btn btn-primary" onClick={(event)=>{deleteMonkey(monkey)}}>Delete</button>
       </div>
