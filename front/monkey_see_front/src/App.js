@@ -67,6 +67,24 @@ const deleteMonkey = (monkeysData) =>{
 })
 }
 
+//______UPDATE
+
+const updateMonkeys = (event, monkeysData) =>{
+  event.preventDefault();
+  axios.put(`http://localhost:3000/monkey/${monkeysData._id}`,
+  {
+    name: name,
+    species: species,
+    order: order,
+    family: family,
+    description: description,
+    image: image
+
+}).then(()=>{axios.get('http://localhost:3000/monkey').then((response)=>{
+  setMonkeys(response.data)
+})
+})
+}
   return (
   <>
   <header className='container'><h1>Monkey See, Monkey Do.</h1></header>
@@ -92,6 +110,18 @@ const deleteMonkey = (monkeysData) =>{
      <div  key={monkey._id}>
       <h2>{monkey.name}</h2>
       <img className ="img-thumbnail" src={monkey.image}/>
+      <form onSubmit ={(event)=>{updateMonkeys(event, monkey)}}>
+  
+  Name: <input className='form-control' type="text" defaultValue={monkey.name}  onChange={newName}  /><br/>
+  Species: <input className='form-control' type="text" defaultValue={monkey.species} onChange={newSpecies}  /><br/>
+  Order: <input className='form-control' type="text" defaultValue={monkey.order} onChange={newOrder}  /><br/>
+  Family: <input className='form-control' type="text" defaultValue={monkey.family} onChange={newFamily}  /><br/>
+  Description: <input className='form-control' type="text" defaultValue={monkey.description} onChange={newDescription}  /><br/>
+  Image: <input className='form-control' type="url" defaultValue={monkey.image} onChange={newImage} /><br/>
+
+  <input className ="btn btn-primary" type ="submit" value="Add" />
+
+</form>
       <button className ="btn btn-primary" onClick={(event)=>{deleteMonkey(monkey)}}>Delete</button>
       </div>
    )})}
