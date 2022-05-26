@@ -82,7 +82,7 @@ const deleteMonkey = (monkeysData) =>{
   Description: <input className='form-control' type="text" onChange={newDescription}  /><br/>
   Image: <input className='form-control' type="url"onChange={newImage} /><br/>
 
-  <input className ="btn btn-primary" type ="submit" value="Add to the list" />
+  <input className ="btn btn-primary" type ="submit" value="Add" />
 
 </form>
  </div>
