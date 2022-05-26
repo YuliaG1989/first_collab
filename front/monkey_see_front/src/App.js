@@ -107,7 +107,7 @@ const [addForm, setAddForm] = useState(false)
   <header className='container'><h1>Monkey See, Monkey Do.</h1></header>
 
  <div className ="container">
- <button className ="btn btn-primary" onClick={()=>setAddForm(s=>!s)} >Add New Monkey</button>
+ <button className ="btn btn-warning" onClick={()=>setAddForm(s=>!s)} >Add New Monkey</button>
 
  { addForm? <form className='create' onSubmit ={addMonkey}>
   
@@ -118,7 +118,7 @@ const [addForm, setAddForm] = useState(false)
  <label>Description:</label>  <textarea className='form-control' rows ="4" onChange={newDescription}></textarea><br/>
  <label>Image:</label>  <input className='form-control' type="url" onChange={newImage} /><br/>
 
-  <input className ="btn btn-primary" type ="submit" value="Add" />
+  <input className ="btn btn-success" type ="submit" value="Add" />
 
 </form> : "" }
  </div>
@@ -127,13 +127,13 @@ const [addForm, setAddForm] = useState(false)
  {monkeys.map((monkey)=>{
    return(
     
-     <div className='monkeys col-sm-5'  key={monkey._id}>
-      
+     <div className='monkeys col-sm-8'  key={monkey._id}>
+      <h2>Name: {monkey.name}</h2>
       <img className ="img-thumbnail" src={monkey.image}/>
       
       <div>
-      <h2>Name: {monkey.name}</h2>
-      <button className ="btn btn-primary" onClick={()=>setShowMonkey(s=>!s)} >See the description</button>
+      
+      <button className ="btn btn-warning" onClick={()=>setShowMonkey(s=>!s)} >See the description</button>
       
       { showMonkey? 
       <ul>
@@ -144,7 +144,7 @@ const [addForm, setAddForm] = useState(false)
       </ul> : ""
       }
       
-      <button className ="btn btn-primary" onClick={()=>setUpdateMonkey(s=>!s)} > Click Here to Update</button>
+      <button className ="btn btn-warning" onClick={()=>setUpdateMonkey(s=>!s)} > Click Here to Update</button>
       { updateMonkey ?
       <form onSubmit ={(event)=>{updateMonkeys(event, monkey)}}>
   
@@ -155,10 +155,10 @@ const [addForm, setAddForm] = useState(false)
   Description: <textarea className='form-control' rows ="4" type="text" defaultValue={monkey.description} onChange={newDescription}></textarea><br/>
   Image: <input className='form-control' type="url" defaultValue={monkey.image} onChange={newImage} /><br/>
 
-  <input className ="btn btn-primary" type ="submit" value="Update This Monkey" />
+  <input className ="btn btn-success" type ="submit" value="Update This Monkey" />
 
 </form> : "" }
-      <button className ="btn btn-primary" onClick={(event)=>{deleteMonkey(monkey)}}>Delete</button> 
+      <button className ="btn btn-danger" onClick={(event)=>{deleteMonkey(monkey)}}>Delete Monkey</button> 
       </div> 
       </div>
    )})}
