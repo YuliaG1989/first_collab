@@ -127,12 +127,12 @@ const [addForm, setAddForm] = useState(false)
  {monkeys.map((monkey)=>{
    return(
     
-     <div className='monkeys col-sm-5'  key={monkey._id}>
-      
+     <div className='monkeys col-sm-8'  key={monkey._id}>
+      <h2>Name: {monkey.name}</h2>
       <img className ="img-thumbnail" src={monkey.image}/>
       
       <div>
-      <h2>Name: {monkey.name}</h2>
+      
       <button className ="btn btn-primary" onClick={()=>setShowMonkey(s=>!s)} >See the description</button>
       
       { showMonkey? 
@@ -158,7 +158,7 @@ const [addForm, setAddForm] = useState(false)
   <input className ="btn btn-primary" type ="submit" value="Update This Monkey" />
 
 </form> : "" }
-      <button className ="btn btn-primary" onClick={(event)=>{deleteMonkey(monkey)}}>Delete</button> 
+      <button className ="btn btn-primary" onClick={(event)=>{deleteMonkey(monkey)}}>Delete Monkey</button> 
       </div> 
       </div>
    )})}

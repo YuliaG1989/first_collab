@@ -71,6 +71,7 @@ li{
 .monkeys{
   background-color: rgb(0,0,0,0.5);
   margin: 20px !important;
+  margin-left: 150px !important;
 }
 
 label{
