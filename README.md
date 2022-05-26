@@ -18,4 +18,4 @@
 13. Created a function for deleting
 14. Created a function for update
 15. Added more content.
-16. Created extra buttons so it'll display forms/description only on click.
+16. Created extra buttons/states so it'll display forms/description only on click.
