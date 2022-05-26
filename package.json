@@ -1,21 +1,4 @@
 {
-  "name": "first_collab",
-  "version": "1.0.0",
-  "description": "Salem",
-  "main": "server.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/YuliaG1989/first_collab.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/YuliaG1989/first_collab/issues"
-  },
-  "homepage": "https://github.com/YuliaG1989/first_collab#readme",
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.18.1",
