@@ -1,6 +1,6 @@
 # first_collab
-## Salem - backend
-## Yulia - frontend
+## Salem - backend ## Yulia - frontend
+
 
 1. First we created server.js and installed express and mongoose
 2. Added middleware app.use(express.json());app.use(cors());
