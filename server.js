@@ -11,11 +11,11 @@ app.use(cors());
 app.post('/monkey', (req, res) => {
     Monkey.create(req.body, (err, createdMonkey) => {
         res.json(createdMonkey)
-        res.json('Hello')
+
     })
 })
 
-app.get('/monkey', (req,res) => {
+app.get('/monkey', (req, res) => {
     Monkey.find({}, (err, monkeyHome) => {
         res.json(monkeyHome)
     })
