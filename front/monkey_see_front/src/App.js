@@ -7,12 +7,12 @@ import axios from 'axios'
 
 function App() {
    //________STATES
-  const[name, setName] = useState("")
-  const[species, setSpecies] = useState("")
-  const[order, setOrder] = useState("")
-  const[family, setFamily] = useState("")
-  const[description, setDescription] = useState(false)
-  const[image, setImage] = useState("")
+  const[name, setName] = useState()
+  const[species, setSpecies] = useState()
+  const[order, setOrder] = useState()
+  const[family, setFamily] = useState()
+  const[description, setDescription] = useState()
+  const[image, setImage] = useState()
   const [monkeys, setMonkeys] = useState([])
   
   
