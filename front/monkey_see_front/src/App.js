@@ -137,10 +137,10 @@ const [addForm, setAddForm] = useState(false)
       
       { showMonkey? 
       <ul>
-      <li><h3>Species:</h3> {monkey.species}</li>
-      <li>Family: {monkey.family}</li>
+      <li><h3><b>Species:</b></h3><i>{monkey.species}</i> </li>
+      <li><h3><b>Family:</b></h3><i>{monkey.family}</i> </li>
       
-      <li> Short Description: {monkey.description}</li>
+      <li><h3><b> Short Description:</b></h3><i> {monkey.description} </i></li>
       </ul> : ""
       }
       

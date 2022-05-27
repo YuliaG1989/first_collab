@@ -38,7 +38,7 @@
 }
 
 body{
-  background-image: url('https://images.unsplash.com/photo-1525923838299-2312b60f6d69?ixlib=rb-1.2.1&raw_url=true&q=80&fm=jpg&crop=entropy&cs=tinysrgb&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1227');
+  background-image: url('https://images.unsplash.com/photo-1621849400072-f554417f7051?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974');
   background-size: cover;
   color: blanchedalmond !important;
 
@@ -57,6 +57,7 @@ h1{
 img{
   height: 70%;
   width: 70%;
+
 }
 
 button {
@@ -72,6 +73,7 @@ li{
   background-color: rgb(0,0,0,0.5);
   margin: 20px !important;
   margin-left: 150px !important;
+  text-align: center;
 }
 
 label{
